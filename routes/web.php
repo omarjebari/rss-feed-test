@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('feed')->group(function () {
-    Route::get('/', [RssFeedController::class, 'index']);
-    Route::post('/import', [RssFeedController::class, 'import']);
+Route::prefix('feeds')->group(function () {
+    Route::get('/', [RssFeedController::class, 'index'])->name('feeds.index');
+    Route::post('/import', [RssFeedController::class, 'import'])->name('feeds.import');
 });
