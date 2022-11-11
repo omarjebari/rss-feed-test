@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::prefix('feeds')->group(function () {
-    Route::get('/', [RssFeedController::class, 'index'])->name('feeds.index');
-    Route::post('/import', [RssFeedController::class, 'import'])->name('feeds.import');
-});
+Route::get('/', [RssFeedController::class, 'index'])->name('feeds.index');
+Route::get('feeds/{feed}', [RssFeedController::class, 'show'])->name('feeds.show');
+Route::post('feeds/import', [RssFeedController::class, 'import'])->name('feeds.import');

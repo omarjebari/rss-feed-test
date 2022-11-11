@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Support\Collection;
 use Illuminate\View\Component;
 
 class Feeds extends Component
@@ -9,17 +10,17 @@ class Feeds extends Component
     /**
      * The list of local feeds.
      *
-     * @var array
+     * @var Collection
      */
-    public array $feeds = [];
+    public Collection $feeds;
 
     /**
      * Create the component instance.
      *
-     * @param array $feeds
+     * @param Collection $feeds
      * @return void
      */
-    public function __construct(array $feeds)
+    public function __construct(Collection $feeds)
     {
         $this->feeds = $feeds;
     }
